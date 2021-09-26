@@ -3,16 +3,16 @@ $(document).ready(function () {
     $("#currentDay").text(moment().format("dddd, MMMM Do YYYY")); 
   
     function Time() { 
-      var present = moment().hours();
+      var presentTime = moment().hours();
   
       $(".time-block").each(function () {
         var timeBlock = parseInt($(this).attr("id").split("-")[1]); 
   
         
-        if (timeBlock < present) { 
+        if (timeBlock < presentTime) { 
           $(this).addClass("past");
         }
-        else if (timeSlot === present) { 
+        else if (timeBlock === presentTime) { 
           $(this).removeClass("past"); 
           $(this).addClass("present"); 
         }
@@ -24,7 +24,7 @@ $(document).ready(function () {
       });
     }
   
-    Time();  
+    Time(); 
     $("#hour-9").children(".description").val(localStorage.getItem("hour-9"));
     $("#hour-10").children(".description").val(localStorage.getItem("hour-10"));
     $("#hour-11").children(".description").val(localStorage.getItem("hour-11"));
