@@ -1,21 +1,26 @@
 $(document).ready(function () {
-  
+
+    //Moment.JS
     $("#currentDay").text(moment().format("dddd, MMMM Do YYYY")); 
-  
+
+
+    //Changes class based on present time 
     function Time() { 
       var presentTime = moment().hours();
   
       $(".time-block").each(function () {
         var timeBlock = parseInt($(this).attr("id").split("-")[1]); 
   
-        
+        //Adds past class
         if (timeBlock < presentTime) { 
           $(this).addClass("past");
         }
+        //Adds present class
         else if (timeBlock === presentTime) { 
           $(this).removeClass("past"); 
           $(this).addClass("present"); 
         }
+        //Adds future class
         else {
           $(this).removeClass("past");  
           $(this).removeClass("present"); 
@@ -23,7 +28,8 @@ $(document).ready(function () {
         }
       });
     }
-  
+    
+    //Time Function
     Time(); 
     $("#hour-9").children(".description").val(localStorage.getItem("hour-9"));
     $("#hour-10").children(".description").val(localStorage.getItem("hour-10"));
@@ -35,12 +41,12 @@ $(document).ready(function () {
     $("#hour-16").children(".description").val(localStorage.getItem("hour-16"));
     $("#hour-17").children(".description").val(localStorage.getItem("hour-17"));
   
+
+    //Local Storage
     $(".saveBtn").on("click", function () { 
-      var plannerItem = $(this).siblings(".description").val();
-      console.log(plannerItem);
-      var listItem = $(this).parent().attr("id");
-      console.log(listItem);
-      localStorage.setItem(listItem, JSON.stringify(plannerItem));
+      var todo = $(this).siblings(".description").val();
+      var savedItem = $(this).parent().attr("id");
+      localStorage.setItem(savedItem, JSON.stringify(todo));
     });
   
   });
