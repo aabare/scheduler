@@ -6,6 +6,7 @@ The Work Day Scheduler was created for Challenge 5 and includes JavaScript, HTML
 
 Usage 
 
+https://aabare.github.io/scheduler/
 Once on the Work Day Scheduler the user clicks in each individual time block, types events happening during each time during the day and then saves events during the work day(9am-5pm). As the work day progresses the time blocks in the past change to gray. If the event is during a present time the time block will be red indicating that it is a currently happening event. Future events will be colored green to show that they are going to occur. 
 
 Authors and Acknowledgements
